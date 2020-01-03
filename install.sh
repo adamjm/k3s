@@ -62,6 +62,10 @@ set -e
 #     Name of systemd service to create, will default from the k3s exec command
 #     if not specified. If specified the name will be prefixed with 'k3s-'.
 #
+#   - INSTALL_K3S_SERVER
+#     If true will install a server deployment. 
+#     
+#
 #   - INSTALL_K3S_TYPE
 #     Type of systemd service to create, will default from the k3s exec command
 #     if not specified.
@@ -252,6 +256,10 @@ setup_verify_arch() {
             ARCH=arm64
             SUFFIX=-${ARCH}
             ;;
+        ppc64le)
+            ARCH=ppc64le
+            SUFFIX=-${ARCH}
+	    ;;
         arm*)
             ARCH=arm
             SUFFIX=-${ARCH}hf
